@@ -1,6 +1,5 @@
 package pineda.sebastian.examsapirest.persistence.repository;
 
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pineda.sebastian.examsapirest.domain.dto.StudentDTO;

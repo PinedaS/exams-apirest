@@ -16,4 +16,10 @@ public class OptionsEntity {
     @ManyToOne
     @JoinColumn(name = "id_question")
     private QuestionsEntity question;
+
+    @Column(name = "option_letter")
+    private char optionLetter;
+
+    @Column(name = "option_description")
+    private String optionDescription;
 }
