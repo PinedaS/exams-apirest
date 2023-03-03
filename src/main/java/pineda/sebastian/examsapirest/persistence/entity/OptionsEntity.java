@@ -1,11 +1,7 @@
 package pineda.sebastian.examsapirest.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "options")
 public class OptionsEntity {
@@ -13,7 +9,7 @@ public class OptionsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_question")
     private QuestionsEntity question;
 
@@ -22,4 +18,36 @@ public class OptionsEntity {
 
     @Column(name = "option_description")
     private String optionDescription;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public QuestionsEntity getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(QuestionsEntity question) {
+        this.question = question;
+    }
+
+    public char getOptionLetter() {
+        return optionLetter;
+    }
+
+    public void setOptionLetter(char optionLetter) {
+        this.optionLetter = optionLetter;
+    }
+
+    public String getOptionDescription() {
+        return optionDescription;
+    }
+
+    public void setOptionDescription(String optionDescription) {
+        this.optionDescription = optionDescription;
+    }
 }

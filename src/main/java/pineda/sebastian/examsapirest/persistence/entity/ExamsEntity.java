@@ -1,14 +1,10 @@
 package pineda.sebastian.examsapirest.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "exams")
 public class ExamsEntity {
@@ -25,6 +21,46 @@ public class ExamsEntity {
     @ManyToMany(mappedBy = "exams")
     private List<StudentsEntity> students;
 
-    @OneToMany(mappedBy = "exam")
+    @OneToMany(mappedBy = "exam", cascade = CascadeType.PERSIST)
     private List<QuestionsEntity> questions;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getSubmissionDate() {
+        return submissionDate;
+    }
+
+    public void setSubmissionDate(Date submissionDate) {
+        this.submissionDate = submissionDate;
+    }
+
+    public String getExamTimeZone() {
+        return examTimeZone;
+    }
+
+    public void setExamTimeZone(String examTimeZone) {
+        this.examTimeZone = examTimeZone;
+    }
+
+    public List<StudentsEntity> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<StudentsEntity> students) {
+        this.students = students;
+    }
+
+    public List<QuestionsEntity> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<QuestionsEntity> questions) {
+        this.questions = questions;
+    }
 }
