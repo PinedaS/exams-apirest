@@ -7,10 +7,8 @@ import java.util.List;
 @Entity
 @Table(name = "students")
 public class StudentsEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String idDocument;
     private String name;
     @Column(name = "last_name")
     private String lastName;
@@ -21,20 +19,12 @@ public class StudentsEntity {
     @Column(name = "student_time_zone")
     private String studentTimeZone;
 
-    @JoinTable(
-            name = "students_exams",
-            joinColumns = @JoinColumn(name = "id_student", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "id_exam", nullable = false)
-    )
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<ExamsEntity> exams;
-
-    public int getId() {
-        return id;
+    public String getIdDocument() {
+        return idDocument;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdDocument(String idDocument) {
+        this.idDocument = idDocument;
     }
 
     public String getName() {
@@ -75,13 +65,5 @@ public class StudentsEntity {
 
     public void setStudentTimeZone(String studentTimeZone) {
         this.studentTimeZone = studentTimeZone;
-    }
-
-    public List<ExamsEntity> getExams() {
-        return exams;
-    }
-
-    public void setExams(List<ExamsEntity> exams) {
-        this.exams = exams;
     }
 }

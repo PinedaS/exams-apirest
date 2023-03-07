@@ -18,9 +18,6 @@ public class ExamsEntity {
     @Column(name = "exam_time_zone")
     private String examTimeZone;
 
-    @ManyToMany(mappedBy = "exams")
-    private List<StudentsEntity> students;
-
     @OneToMany(mappedBy = "exam", cascade = CascadeType.PERSIST)
     private List<QuestionsEntity> questions;
 
@@ -46,14 +43,6 @@ public class ExamsEntity {
 
     public void setExamTimeZone(String examTimeZone) {
         this.examTimeZone = examTimeZone;
-    }
-
-    public List<StudentsEntity> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<StudentsEntity> students) {
-        this.students = students;
     }
 
     public List<QuestionsEntity> getQuestions() {

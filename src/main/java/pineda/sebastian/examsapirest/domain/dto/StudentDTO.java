@@ -1,11 +1,20 @@
 package pineda.sebastian.examsapirest.domain.dto;
 
 public class StudentDTO {
+    private String idDocument;
     private String name;
     private String lastName;
     private int age;
     private String residenceCity;
     private String studentTimeZone;
+
+    public String getIdDocument() {
+        return idDocument;
+    }
+
+    public void setIdDocument(String idDocument) {
+        this.idDocument = idDocument;
+    }
 
     public String getName() {
         return name;
