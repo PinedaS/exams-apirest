@@ -1,6 +1,8 @@
 package pineda.sebastian.examsapirest.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,7 @@ public class ExamController {
     ExamService examService;
 
     @PostMapping("/create")
-    public ExamDTO createExam(@RequestBody ExamDTO examDTO) {
-        return examService.createExam(examDTO);
+    public ResponseEntity<Object> createExam(@RequestBody ExamDTO examDTO) {
+        return new ResponseEntity<>(examService.createExam(examDTO), HttpStatus.OK);
     }
 }
